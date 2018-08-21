@@ -5,3 +5,20 @@ form {
 .user-post, .user-review {
   font-weight: bold;
 }
+#select{
+  height: 30px;
+  width:60px
+}
+#btn{
+  margin-left:10px
+}
+
+#sortButton{
+  background-color:rgb(27, 100, 27);
+  margin-top:10px;
+  margin-bottom:10px
+}
+
+li{
+  margin-left:10%
+}
