@@ -13,9 +13,8 @@ const clicked = function () {
 
 const renderBooks = function () {
     $("#bookList").empty()
-    for (let i in books) {
-        $("#bookList").append("<li>Name: " + books[i].bookName + "<br> Category: " + books[i].bookCategory + "<br>Rating: " + books[i].bookRating + "</li>");
-        i++
+    for (let i of books) {
+        $("#bookList").append("<li>Name: " + i.bookName + "<br> Category: " + i.bookCategory + "<br>Rating: " + i.bookRating + "</li>");
     }
 }
 
@@ -28,31 +27,9 @@ const sortBooks = function () {
     timesClicked++
     if(timesClicked%2==0){
     books.sort(
-        function (a, b) {
-            if (a.bookRating - b.bookRating == 0) {
-                return 0
-            }
-            else if (a.bookRating - b.bookRating > 0) {
-                return 1
-            }
-            else {
-                return -1
-            }
-        })
+        function (a, b) {return a.bookRating - b.bookRating})
     }
-    else{books.reverse(
-        function (a, b) {
-            if (a.bookRating - b.bookRating == 0) {
-                return 0
-            }
-            else if (a.bookRating - b.bookRating > 0) {
-                return 1
-            }
-            else {
-                return -1
-            }
-        })
-
+    else{books.sort(function (a, b) {return b.bookRating - a.bookRating})
     }
     renderBooks()
 }
